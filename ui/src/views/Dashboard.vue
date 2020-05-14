@@ -1,5 +1,12 @@
 <template>
   <fragment>
+    <v-alert
+      v-if="alert"
+      type="warning"
+      outlined
+    >
+      Sorry, we couldn't find the page you were looking for
+    </v-alert>
     <v-row>
       <v-col
         cols="12"
@@ -17,7 +24,7 @@
               </v-list-item-title>
               <v-list-item-subtitle>Registered devices into the tenancy account</v-list-item-subtitle>
             </v-list-item-content>
-
+            
             <v-list-item-avatar
               tile
               size="80"
@@ -128,7 +135,12 @@ export default {
   components: {
     DeviceAdd
   },
-
+  props: {
+    alert: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     stats() {
       return this.$store.getters['stats/stats'];

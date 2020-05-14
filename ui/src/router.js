@@ -40,10 +40,11 @@ const router = new Router({
           import(/* webpackChunkName: 'details-session' */ './views/DetailsSession.vue') 
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () =>
-        import('./views/Login.vue')
+      path: '*',
+      name: 'NotFound',
+      component: Dashboard,
+      props:{alert: true},    
+      redirect: '/',        
     }
   ]
 });
