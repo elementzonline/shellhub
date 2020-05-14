@@ -1,9 +1,9 @@
 import http from '@/helpers/http';
 
 export const
-  fetchDevices = async (perPage, page) => {
-    return http().get(`/devices?per_page=${perPage}&page=${page}`);
-  },
+  fetchDevices = async (perPage, page, search) => {
+    return http().get('/devices?per_page='+perPage.toString()+'&page='+page.toString()+'&filter='+search);
+  },  
 
   removeDevice = async (uid) => {
     return http().delete(`/devices/${uid}`);
