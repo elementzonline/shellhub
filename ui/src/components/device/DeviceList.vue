@@ -144,31 +144,7 @@ export default {
       numberDevices: 0,
       listDevices: [],
       pagination: {},
-      deviceIcon: {
-        alpine: 'fl-alpine',
-        arch: 'fl-archlinux',
-        centos: 'fl-centos',
-        coreos: 'fl-coreos',
-        debian: 'fl-debian',
-        devuan: 'fl-devuan',
-        elementary: 'fl-elementary',
-        fedora: 'fl-fedora',
-        freebsd: 'fl-freebsd',
-        gentoo: 'fl-gentoo',
-        linuxmint: 'fl-linuxmint',
-        mageia: 'fl-mageia',
-        manjaro: 'fl-manjaro',
-        mandriva: 'fl-mandriva',
-        nixos: 'fl-nixos',
-        opensuse: 'fl-opensuse',
-        rhel: 'fl-redhat',
-        sabayon: 'fl-sabayon',
-        slackware: 'fl-slackware',
-        ubuntu: 'fl-ubuntu',
-        raspbian: 'fl-raspberry-pi',
-        'ubuntu-core': 'fl-ubuntu',
-        void: 'fl-void',
-      },
+      deviceIcon: {},
       copySnack: false,
       editName: '',
       headers: [
@@ -211,6 +187,7 @@ export default {
 
         await this.$store.dispatch('devices/fetch', this.data[0]);
         this.listDevices = this.$store.getters['devices/list'];
+        this.deviceIcon = this.$store.getters['devices/getDeviceIcon'];
         this.numberDevices = this.$store.getters['devices/getNumberDevices']; 
       },
       deep: true

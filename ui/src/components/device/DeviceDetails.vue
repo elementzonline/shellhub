@@ -157,31 +157,7 @@ export default {
       editName: '',
       hide:true,
       device: null,
-      deviceIcon: {
-        alpine: 'fl-alpine',
-        arch: 'fl-archlinux',
-        centos: 'fl-centos',
-        coreos: 'fl-coreos',
-        debian: 'fl-debian',
-        devuan: 'fl-devuan',
-        elementary: 'fl-elementary',
-        fedora: 'fl-fedora',
-        freebsd: 'fl-freebsd',
-        gentoo: 'fl-gentoo',
-        linuxmint: 'fl-linuxmint',
-        mageia: 'fl-mageia',
-        manjaro: 'fl-manjaro',
-        mandriva: 'fl-mandriva',
-        nixos: 'fl-nixos',
-        opensuse: 'fl-opensuse',
-        rhel: 'fl-redhat',
-        sabayon: 'fl-sabayon',
-        slackware: 'fl-slackware',
-        ubuntu: 'fl-ubuntu',
-        raspbian: 'fl-raspberry-pi',
-        'ubuntu-core': 'fl-ubuntu',
-        void: 'fl-void',
-      },
+      deviceIcon: {},
     };
   },
 
@@ -190,6 +166,7 @@ export default {
     try{
       await this.$store.dispatch('devices/get', this.uid);
       this.device = this.$store.getters['devices/get'];
+      this.deviceIcon = this.$store.getters['devices/getDeviceIcon'];
     } catch(error){
       this.hide=false;
       this.dialog=true;
